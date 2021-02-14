@@ -32,8 +32,8 @@ function readData(){
             } 
             */
             response.forEach( elem => string += elem.name + ":" + elem.score + "\n");
-            console.log(elem.name);
-            document.getElementById("readReq").innerHTML=dbText;
+
+            document.getElementById("readReq").innerHTML=string;
         }
     };
 }
