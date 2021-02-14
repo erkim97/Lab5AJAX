@@ -8,43 +8,38 @@
 <body>
     <h1>Enter Name and Score</h1>
 
-    <form onsubmit="checkData()">
+    <form onsubmit="sendData()">
         <label for="name">Name:</label></br>
         <input type="text" id="name" name="name" value="name"></br></br>
         <label for="score">Score:</label></br>
         <input type="number" id="score" name="score" value="1"></br></br>
         <input type="submit">
     </form>
+    
+    <h1 id="updateText"></h2>
 
     <script>
-        function checkData() {
-            console.log("checkdata fxn");
-            let name = document.getElementById("name").value;
-            let score = parseInt(document.getElementById("score").value);
-
-            if (name != null && !isNaN(score)) {
-                sendData();
-            }
-            else {
-                window.alert("Invalid data");
-            }
-
-        }
 
         function sendData() {
             console.log("senddata fxn");
             const xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "https://sehyungkim-lab5.herokuapp.com/COMP4537/labs/5/writeDB", true);
+
             let name = document.getElementById("name").value;
-            let score = documenent.getElementById("score").value;
+            let score = document.getElementById("score").value;
+
+            let scoreInt = parseInt(score);
+            if (name != null && !isNaN(score)) {
+
+            xhttp.open("GET", "https://sehyungkim-lab5.herokuapp.com/COMP4537/labs/5/writeDB", true);
             xhttp.send(name, score);
 
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    window.alert("Saved successfully!");
+                    document.getElementById("updateText").innerHTML=userName +":"+ userScoreInt + " was stored in the DB";
                 }
             };
         }
+    }
     </script>
 
 </body>
