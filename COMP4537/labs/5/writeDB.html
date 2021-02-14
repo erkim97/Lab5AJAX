@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 5 writeDB</title>
+    <title>Lab 5</title>
 </head>
 <body>
     <h1>Enter Name and Score</h1>
@@ -27,13 +27,13 @@
             let score = document.getElementById("score").value;
 
             let scoreInt = parseInt(score);
-            if (name != null && !isNaN(score)) {
+            if (name != null && !isNaN(scoreInt)) {
 
                 const dbStr = "?name="+name
             +  "&score="+scoreInt;
 
-            xhttp.open("GET", "https://comp4537lab5.herokuapp.com/writeDB"+ dbStr, true);
-            xhttp.send(name, score);
+            xhttp.open("GET", "https://comp4537lab5.herokuapp.com/COMP4537/labs/5/writeDB"+ dbStr, true);
+            xhttp.send();
 
             console.log("send name and score")
 
