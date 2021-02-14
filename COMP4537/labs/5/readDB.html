@@ -34,7 +34,7 @@ function readData(){
             */
             response.forEach( elem => dbText += elem.name + ":" + elem.score + "\n");
 
-            document.getElementById("readReq").innerHTML=string;
+            document.getElementById("readReq").innerHTML=dbText;
         }
     };
 }
