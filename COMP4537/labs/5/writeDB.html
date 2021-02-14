@@ -25,22 +25,21 @@
 
             let name = document.getElementById("name").value;
             let score = document.getElementById("score").value;
-            let scoreInt = parseInt(score);
-            const dbStr = "?name="+name
-            +  "&score="+scoreInt;
-            
-            if (name != null && !isNaN(scoreInt)) {
-            
 
-            xhttp.open("GET", "https://comp4537lab5.herokuapp.com/writeDB" + dbStr, true);
+            let scoreInt = parseInt(score);
+
+            if (name != null && !isNaN(scoreInt)) {
+
+                const str = "?name="+name
+            +  "&score="+scoreInt;
+
+            xhttp.open("GET", "https://comp4537lab5.herokuapp.com/COMP4537/labs/5/writeDB" + str, true);
             xhttp.send();
 
-            console.log(name);
-            console.log(scoreInt);
 
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("updateText").innerHTML=userName +":"+ userScoreInt + " was stored in the DB";
+                    document.getElementById("updateText").innerHTML=name +":"+ scoreInt + " was stored in the DB";
                 }
             };
         }
