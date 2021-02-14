@@ -28,7 +28,7 @@ function readData(){
 
             let dbText = "";
             for (let key in response) {
-              dbText += "<div>"+ JSON.stringify(key) + ":" + JSON.stringify(response[key]) + "</div>";
+              dbText += "<div>" + JSON.stringify(response[key]) + "</div>";
             }
 
             document.getElementById("readReq").innerHTML=dbText;
