@@ -27,10 +27,11 @@
             let score = document.getElementById("score").value;
 
             let scoreInt = parseInt(score);
-            
-            if (name != null && !isNaN(score)) {
-            xhttp.open("GET", "https://comp4537lab5.herokuapp.com/COMP4537/labs/5/writeDB", true);
-            xhttp.send(name, score);
+            const str = "?name="+name
+            +  "&score="+scoreInt;
+            if (name != null && !isNaN(scoreInt)) {
+            xhttp.open("GET", "https://comp4537lab5.herokuapp.com/COMP4537/labs/5/writeDB" + dbStr, true);
+            xhttp.send();
 
             console.log("send name and score")
 
