@@ -28,9 +28,8 @@ function readData(){
 
             let dbText = "";
             for (let key in response) {
-              dbText += "<div>" + response[key].value + "</div>";
+              dbText += "<div>" + response[key].getString("name") + response[key].getString("score") + "</div>";
             }
-
             document.getElementById("readReq").innerHTML=dbText;
         }
     };
