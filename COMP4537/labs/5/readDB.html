@@ -32,7 +32,7 @@ function readData(){
               dbText += "<div>" + response[key] + "</div>";
             } 
             */
-            response.forEach( elem => dbText += elem.name + ":" + elem.score + <br></br>);
+            response.forEach( elem => dbText += elem.name + ":" + elem.score + "<br/>");
 
             document.getElementById("readReq").innerHTML=dbText;
         }
