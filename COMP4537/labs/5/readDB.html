@@ -26,10 +26,13 @@ function readData(){
             let response = JSON.parse(this.responseText);
             console.log(response);
 
-            let dbText = "";
+/*            let dbText = "";
             for (let key in response) {
               dbText += "<div>" + response[key].getString("name") + response[key].getString("score") + "</div>";
-            }
+            } 
+            */
+            response.forEach( elem => string += elem.name + ":" + elem.score + "\n");
+            console.log(elem.name);
             document.getElementById("readReq").innerHTML=dbText;
         }
     };
