@@ -18,6 +18,7 @@
 
     <script>
         function checkData() {
+            console.log("checkdata fxn");
             let name = document.getElementById("name").value;
             let score = parseInt(document.getElementById("score").value);
 
@@ -31,6 +32,7 @@
         }
 
         function sendData() {
+            console.log("senddata fxn");
             const xhttp = new XMLHttpRequest();
             xhttp.open("GET", "https://sehyungkim-lab5.herokuapp.com/COMP4537/labs/5/writeDB", true);
             let name = document.getElementById("name").value;
