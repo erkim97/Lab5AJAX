@@ -15,23 +15,23 @@
 
 
   <script>
-
 function readData(){
     const xhttp= new XMLHttpRequest();
 
-    xhttp.open("GET", "https://comp4537lab5.herokuapp.com/COMP4537/labs/5/readDB",true);
+    xhttp.open("GET", "https://comp4537lab5.herokuapp.com/readDB",true);
     xhttp.send();
 
     xhttp.onreadystatechange = function(){
         if((this.readyState==4)&&(this.status==200)){
             let response = JSON.parse(this.responseText);
+            console.log(response);
 
-            let dbHtml = "";
+            let dbText = "";
             for (let key in response) {
-                dbHtml += "<div>"+key + ":" + response[key]+"</div>";
+              dbText += "<div>"+ key + ":" + response[key] + "</div>";
             }
 
-            document.getElementById("readReq").innerHTML=dbHtml;
+            document.getElementById("readReq").innerHTML=dbText;
         }
     };
 }

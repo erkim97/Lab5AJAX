@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 5</title>
+    <title>Lab 5 writeDB</title>
 </head>
 <body>
     <h1>Enter Name and Score</h1>
 
         <label for="name">Name:</label></br>
-        <input type="text" id="name" name="name" value="name"></br></br>
+        <input type="text" id="name" name="name" placeholder="name"></br></br>
         <label for="score">Score:</label></br>
-        <input type="number" id="score" name="score" value="1"></br></br>
-
-        <button type="button" onclick="sendData()">write to db</button>
+        <input type="number" id="score" name="score" placeholder="score"></br></br>
+        <button type="button" onclick="sendData()">Write to db</button>
 
     
     <h1 id="updateText"></h2>
@@ -30,11 +29,14 @@
             let scoreInt = parseInt(score);
             if (name != null && !isNaN(score)) {
 
-            xhttp.open("GET", "https://comp4537lab5.herokuapp.com/COMP4537/labs/5/writeDB", true);
+                const dbStr = "?name="+name
+            +  "&score="+scoreInt;
+
+            xhttp.open("GET", "https://comp4537lab5.herokuapp.com/writeDB"+ dbStr, true);
             xhttp.send(name, score);
 
             console.log("send name and score")
-            
+
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     document.getElementById("updateText").innerHTML=userName +":"+ userScoreInt + " was stored in the DB";
