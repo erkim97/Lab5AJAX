@@ -27,7 +27,7 @@
             let score = document.getElementById("score").value;
 
             let scoreInt = parseInt(score);
-            const str = "?name="+name
+            const dbStr = "?name="+name
             +  "&score="+scoreInt;
             if (name != null && !isNaN(scoreInt)) {
             xhttp.open("GET", "https://comp4537lab5.herokuapp.com/writeDB" + dbStr, true);
